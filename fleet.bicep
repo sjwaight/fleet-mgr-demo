@@ -36,7 +36,6 @@ resource updateStrategy_fast 'Microsoft.ContainerService/fleets/updateStrategies
   }
 }
 
-//TODO: set the NodeImageSelection once the validation has been fixed
 resource autoupgradeProfile_k8s_rapid 'Microsoft.ContainerService/fleets/autoUpgradeProfiles@2024-05-02-preview' = {
   parent: fleetResource
   name: 'k8slatest-staged'
@@ -49,7 +48,6 @@ resource autoupgradeProfile_k8s_rapid 'Microsoft.ContainerService/fleets/autoUpg
   }
 }
 
-//TODO: remove the NodeImageSelection once the validation has been fixed
 resource autoupgradeProfile_nodeimage_rapid 'Microsoft.ContainerService/fleets/autoUpgradeProfiles@2024-05-02-preview' = {
   parent: fleetResource
   name: 'nodeimage-fast'

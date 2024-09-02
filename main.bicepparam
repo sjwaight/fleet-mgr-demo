@@ -18,7 +18,7 @@ param members = [
     name: 'member-2-canary-win'
     group: 'canary'
     dnsPrefix: 'member2'
-    location: 'westcentralus'
+    location: 'australiacentral'
     agentCount: 2
     agentVMSize: vmsize
     osType: 'Windows'
@@ -47,5 +47,15 @@ param members = [
     agentVMSize: vmsize
     osType: 'Linux'
     osSKU: 'AzureLinux'
+  }
+  {
+    name: 'member-5-latam-azlinux'
+    group: 'latam'
+    dnsPrefix: 'member5'
+    location: 'southeastasia'
+    agentCount: 2
+    agentVMSize: vmsize
+    osType: 'Linux'
+    osSKU: 'Ubuntu'
   }
 ]

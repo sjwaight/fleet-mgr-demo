@@ -5,6 +5,7 @@ param fleetLocation string = 'westcentralus'
 param tags object = {
   environment: 'test'
   owners: 'fleet'
+  'aks-node-os-auto-upgrade-exception': 'true'
 }
 param vmsize string = 'Standard_D2s_v3'
 param fleetResourceGroup string = 'fleet-demo'
