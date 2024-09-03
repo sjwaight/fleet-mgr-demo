@@ -1,12 +1,20 @@
-# Long running monitoring
+# Fleet Demo Deployment
 
 ## Deployment
 
 ```bash
-SUBSCRIPTION_ID='359833f5-8592-40b6-8175-edc664e2196a'
+export BICEP_WIN_PWD="..."
+export SUBSCRIPTION_ID='...'
+export FLEET_LOCATION="australiaeast"
+./deploy.sh
+```
+
+or use the following az deployment command:
+
+```bash
 az deployment sub create \
 --name "fleet-mgr-$(date -I)" \
---location australiaeast \
+--location ${FLEET_LOCATION} \
 --subscription ${SUBSCRIPTION_ID} \
 --template-file main.bicep \
 --parameters main.bicepparam
@@ -20,13 +28,15 @@ The solution includes the following resources:
 
 - hubless fleet: `/subscriptions/<subscription>/resourceGroups/flt-demo/providers/Microsoft.ContainerService/fleets/fleet-mgr`
 
-4 clusters across different regions:  
-- 2 x westcentralus (azlinux, windows)
+5 clusters across different regions:  
+- 1 x australiaeast (windows)
+- 1 x westcentralus (azlinux)
 - 1 x northeurope (azlinux)
 - 1 x australiaeast (azlinux)
+- 1 x southeastasia (azlinux)
 
 see [cluster.bicep](./cluster.bicep) for more details on their configuration.
-see [main.bicepparams.json](./main.bicepparams.json) for the parameters used to deploy the resources
+see [main.bicepparams](./main.bicepparam) for the parameters used to deploy the resources
 
 The clusters are joined to the fleet, with `staging`, `europe` and `latam` groups.
 
