@@ -10,6 +10,7 @@ param member object = {
   agentVMSize: 'Standard_D2s_v3'
   osType: 'Linux'
   osSku: 'AzureLinux'
+  kubernetesVersion: '1.29.2'
 }
 
 module clusterResource './cluster.bicep' = {

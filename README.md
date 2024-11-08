@@ -9,6 +9,16 @@ export FLEET_LOCATION="australiaeast"
 ./deploy.sh
 ```
 
+Determine appropriate Kubernetes version(s) to use with your demo setup.
+
+Recommendation is to select two patches from the same minor release if you wish to test Rapid *or* Stable channels.
+
+```bash
+az aks get-versions --location eastus --output table
+```
+
+
+
 or use the following az deployment command:
 
 ```bash
@@ -19,6 +29,7 @@ az deployment sub create \
 --template-file main.bicep \
 --parameters main.bicepparam
 ```
+
 
 ### Overview
 

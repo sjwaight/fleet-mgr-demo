@@ -1,6 +1,10 @@
 using './main.bicep'
 
-param fleetResourceGroup = 'fleet-demo-kcd'
+param fleetName = 'fleet-mgr-ignite-24'
+param fleetResourceGroup = 'fleet-demo-ignite-24'
+param k8sVersionOne = '1.29.4'
+param k8sVersionTwo = '1.29.6'
+
 var vmsize = 'Standard_D2s_v3'
 
 param members = [
@@ -13,6 +17,7 @@ param members = [
     agentVMSize: vmsize
     osType: 'Linux'
     osSku: 'AzureLinux'
+    kubernetesVersion: k8sVersionOne
   }
   {
     name: 'member-2-canary-win'
@@ -27,9 +32,10 @@ param members = [
       adminUserName: 'nimda'
       adminPassword: readEnvironmentVariable('BICEP_WIN_PWD', 'P@assW0rd!N1md@')
     }
+    kubernetesVersion: k8sVersionTwo
   }
   {
-    name: 'member-3-latam-azlinux'
+    name: 'member-3-apac-azlinux'
     group: 'apac'
     dnsPrefix: 'member3'
     location: 'australiaeast'
@@ -37,6 +43,7 @@ param members = [
     agentVMSize: vmsize
     osType: 'Linux'
     osSku: 'AzureLinux'
+    kubernetesVersion: k8sVersionOne
   }
   {
     name: 'member-4-eu-azlinux'
@@ -47,9 +54,10 @@ param members = [
     agentVMSize: vmsize
     osType: 'Linux'
     osSKU: 'AzureLinux'
+    kubernetesVersion: k8sVersionOne
   }
   {
-    name: 'member-5-latam-azlinux'
+    name: 'member-5-apac-azlinux'
     group: 'apac'
     dnsPrefix: 'member5'
     location: 'southeastasia'
@@ -57,5 +65,6 @@ param members = [
     agentVMSize: vmsize
     osType: 'Linux'
     osSKU: 'Ubuntu'
+    kubernetesVersion: k8sVersionOne
   }
 ]

@@ -7,6 +7,8 @@ param tags object = {
   owners: 'fleet'
   'aks-node-os-auto-upgrade-exception': 'true'
 }
+param k8sVersionOne string = '1.29.4'
+param k8sVersionTwo string = '1.29.6'
 param vmsize string = 'Standard_D2s_v3'
 param fleetResourceGroup string = 'fleet-demo'
 param clustersResourceGroup string = '${fleetResourceGroup}-clusters'
@@ -23,6 +25,7 @@ param members array = [
     osType: 'Linux'
     osSku: 'AzureLinux'
     windowsProfile: null
+    kubernetesVersion: k8sVersionOne
   }
   {
     name: 'member-2-canary-win'
@@ -37,9 +40,10 @@ param members array = [
       adminUserName: ''
       adminPassword: ''
     }
+    kubernetesVersion: k8sVersionTwo
   }
   {
-    name: 'member-3-latam-azlinux'
+    name: 'member-3-apac-azlinux'
     group: 'anz'
     dnsPrefix: 'member3'
     location: 'australiaeast'
@@ -48,6 +52,7 @@ param members array = [
     osType: 'Linux'
     osSku: 'AzureLinux'
     windowsProfile: null
+    kubernetesVersion: k8sVersionOne
   }
   {
     name: 'member-4-eu-azlinux'
@@ -59,6 +64,7 @@ param members array = [
     osType: 'Linux'
     osSKU: 'AzureLinux'
     windowsProfile: null
+    kubernetesVersion: k8sVersionOne
   }
 ]
 

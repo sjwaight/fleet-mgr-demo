@@ -11,6 +11,7 @@ param member object = {
   osType: 'Linux'
   osSku: 'AzureLinux'
   windowsProfile: null
+  kubernetesVersion: '1.29.2'
 }
 
 var windowsProfile = member.osType == 'Windows' ? member.windowsProfile : null
@@ -55,6 +56,7 @@ resource clusterResource 'Microsoft.ContainerService/managedClusters@2024-02-01'
     networkProfile: {
       networkPlugin: member.osType == 'Windows' ? 'azure' : 'kubenet'
     }
+    kubernetesVersion: member.kubernetesVersion
   }
 }
 
