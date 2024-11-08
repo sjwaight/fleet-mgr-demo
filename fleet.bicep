@@ -18,7 +18,7 @@ resource updateStrategy_staged 'Microsoft.ContainerService/fleets/updateStrategi
     strategy: {
       stages:[
         {name: 'canary', groups: [{name: 'canary'}], afterStageWaitInSeconds: 3600 }
-        {name: 'prod', groups: [{name: 'latam'}, {name: 'europe'}]}
+        {name: 'prod', groups: [{name: 'apac'}, {name: 'europe'}]}
       ]
     }
   }
@@ -30,7 +30,7 @@ resource updateStrategy_fast 'Microsoft.ContainerService/fleets/updateStrategies
   properties: {
     strategy: {
       stages:[
-        {name: 'prod', groups: [ {name: 'canary'}, {name: 'latam'}, {name: 'europe'}]}
+        {name: 'prod', groups: [ {name: 'canary'}, {name: 'apac'}, {name: 'europe'}]}
       ]
     }
   }

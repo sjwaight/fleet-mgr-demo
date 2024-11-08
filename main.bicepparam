@@ -30,7 +30,7 @@ param members = [
   }
   {
     name: 'member-3-latam-azlinux'
-    group: 'latam'
+    group: 'apac'
     dnsPrefix: 'member3'
     location: 'australiaeast'
     agentCount: 2
@@ -50,7 +50,7 @@ param members = [
   }
   {
     name: 'member-5-latam-azlinux'
-    group: 'latam'
+    group: 'apac'
     dnsPrefix: 'member5'
     location: 'southeastasia'
     agentCount: 2

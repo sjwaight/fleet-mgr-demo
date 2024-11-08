@@ -17,7 +17,7 @@ param members array = [
     name: 'member-1-canary-azlinux'
     group: 'canary'
     dnsPrefix: 'member1'
-    location: 'eastus2euap'
+    location: 'eastus2'
     agentCount: 2
     agentVMSize: vmsize
     osType: 'Linux'
@@ -28,7 +28,7 @@ param members array = [
     name: 'member-2-canary-win'
     group: 'canary'
     dnsPrefix: 'member2'
-    location: 'eastus2euap'
+    location: 'eastus2'
     agentCount: 2
     agentVMSize: vmsize
     osType: 'Windows'
@@ -40,7 +40,7 @@ param members array = [
   }
   {
     name: 'member-3-latam-azlinux'
-    group: 'latam'
+    group: 'anz'
     dnsPrefix: 'member3'
     location: 'australiaeast'
     agentCount: 2
