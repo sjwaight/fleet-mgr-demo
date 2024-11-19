@@ -1,6 +1,7 @@
 param name string
 param tags object
 param location string = resourceGroup().location
+param useHubCluster bool = false
 
 resource fleetResource 'Microsoft.ContainerService/fleets@2024-04-01' = {
   name: name
@@ -8,6 +9,14 @@ resource fleetResource 'Microsoft.ContainerService/fleets@2024-04-01' = {
   location: location
   identity: {
     type: 'SystemAssigned'
+  }
+  properties: {
+    hubProfile: useHubCluster ? {
+      agentProfile: {}
+      apiServerAccessProfile: {
+        enablePrivateCluster: false
+      }
+    } : {}
   }
 }
 

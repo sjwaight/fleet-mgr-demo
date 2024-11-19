@@ -54,7 +54,7 @@ resource clusterResource 'Microsoft.ContainerService/managedClusters@2024-02-01'
     }
     windowsProfile: windowsProfile
     networkProfile: {
-      networkPlugin: member.osType == 'Windows' ? 'azure' : 'kubenet'
+      networkPlugin: 'azure'
     }
     kubernetesVersion: member.kubernetesVersion
   }

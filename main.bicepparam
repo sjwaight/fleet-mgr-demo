@@ -2,8 +2,9 @@ using './main.bicep'
 
 param fleetName = 'fleet-mgr-ignite-24'
 param fleetResourceGroup = 'fleet-demo-ignite-24'
-param k8sVersionOne = '1.29.4'
-param k8sVersionTwo = '1.29.6'
+param k8sVersionOne = '1.28.10'
+param k8sVersionTwo = '1.28.6'
+param useHubCluster = false
 
 var vmsize = 'Standard_D2s_v3'
 
@@ -32,7 +33,7 @@ param members = [
       adminUserName: 'nimda'
       adminPassword: readEnvironmentVariable('BICEP_WIN_PWD', 'P@assW0rd!N1md@')
     }
-    kubernetesVersion: k8sVersionTwo
+    kubernetesVersion: k8sVersionOne
   }
   {
     name: 'member-3-apac-azlinux'

@@ -12,6 +12,7 @@ param k8sVersionTwo string = '1.29.6'
 param vmsize string = 'Standard_D2s_v3'
 param fleetResourceGroup string = 'fleet-demo'
 param clustersResourceGroup string = '${fleetResourceGroup}-clusters'
+param useHubCluster bool = false
 
 // this gets overriden by the values in main.bicepparam
 param members array = [
@@ -85,6 +86,7 @@ module fleet './fleet.bicep' = {
     name: fleetName
     location: fleetLocation
     tags: tags
+    useHubCluster: useHubCluster
   }
 }
 
